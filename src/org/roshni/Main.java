@@ -1,38 +1,44 @@
 package org.roshni;
 
+import project.Position;
+import project.Projectile;
+
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-    //Just checking Git
+        int []x1 = {};
+        int []x2 = {1,2};
+        make2(x1, x2);
+        Projectile p = new Projectile();
 
-    ComplexNumber[] complexArray = new ComplexNumber[10];
-    for (int i = 0; i < 10; i++) {
-        complexArray[i]= new ComplexNumber((int)(Math.random()*201)-100,(int)(Math.random()*201)-100);
-        System.out.println(complexArray[i].toString());
-    }
-    ComplexNumber start = new ComplexNumber(0,0);
-    for (int i = 0; i<10;i++){
-        start = start.addComplexNumber(complexArray[i]);
-        start.displayComplexNumber();
-
-    }
+        Position[] pArray = p.Project(45,15);
+        for (int i=0; i< pArray.length;i++) {
+            if (pArray[i] != null) {
+                System.out.println(pArray[i].getX() + " " + pArray[i].getY() + " " + pArray[i].getTime());
+            }
+        }
 
 
 
 
-
-
-    /*ComplexNumber complex1 = new ComplexNumber((int)(Math.random()*201)-100,(int)(Math.random()*201)-100);
-    ComplexNumber complex2 = new ComplexNumber((int)(Math.random()*201)-100,(int)(Math.random()*201)-100);
-    ComplexNumber addResult = complex1.addComplexNumber(complex2);
-    ComplexNumber subtractResult = complex1.subtractComplexNumber(complex2);
-    ComplexNumber multiplyResult = complex1.multiplyComplexNumber(complex2);
-
-    System.out.println("(" + complex1.toString() + ")+(" + complex2.toString() + ") = (" + addResult.toString()+ ")");
-    addResult.displayComplexNumber();
-    subtractResult.displayComplexNumber();
-    multiplyResult.displayComplexNumber();*/
 
     }
+    public static int[] make2(int[] a, int[] b) {
+        int[] x= new int[2];
+        if (a.length==0){
+            x[0]=b[0];
+            x[0]=b[1];
+        }
+        if(a.length==1){
+            x[0]=a[0];
+            x[1]=b[0];
+        }
+        if(a.length>=2){
+            x[0]=a[0];
+            x[1]=a[1];
+        }
+        return x;
+    }
+
 }
